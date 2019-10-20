@@ -24,7 +24,7 @@ class MyWebsite extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('9 november RGB feest'),
+        title: Text('9 november Silent disco feest'),
         centerTitle: true,
       ),
       body: Container(

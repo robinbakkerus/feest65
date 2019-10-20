@@ -9,7 +9,6 @@ import 'package:party/widget/glow_ehv.dart';
 const _c1 = Color.fromRGBO(230, 10, 10, 0.1);
 const _c2 = Color.fromRGBO(10, 230, 10, 0.1);
 const _c3 = Color.fromRGBO(10, 10, 230, 0.1);
-const double _w = 500.0;
 
 class Poster extends StatelessWidget {
   const Poster({Key key}) : super(key: key);
@@ -54,10 +53,18 @@ class Poster extends StatelessWidget {
     );
   }
 
+  _w() {
+    if (AppData.screenWidth > 500.0) {
+      return 500.0;
+    } else {
+      return AppData.screenWidth;
+    }
+  }
+
   Widget _posterImage() {
     return Center(
       child: Container(
-          width: _w,
+          width: _w(),
           height: 400.0,
           decoration: BoxDecoration(
               shape: BoxShape.circle,
@@ -72,7 +79,7 @@ class Poster extends StatelessWidget {
   Widget _kadoTip() {
     return Center(
       child: Container(
-        width: _w,
+        width: _w(),
         decoration: _boxDecoration(Colors.white, Colors.red),
         child: Center(
           child: Padding(
@@ -129,7 +136,7 @@ class Poster extends StatelessWidget {
     return Center(
       child: Container(
         decoration: _boxDecoration(_c2, Colors.green),
-        width: _w,
+        width: _w(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -149,7 +156,7 @@ class Poster extends StatelessWidget {
     return Center(
       child: Container(
         decoration: _boxDecoration(_c3, Colors.blue),
-        width: _w,
+        width: _w(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -168,7 +175,7 @@ class Poster extends StatelessWidget {
     return Center(
       child: Container(
         decoration: _boxDecoration(_c1, Colors.red),
-        width: _w,
+        width: _w(),
         child: Column(
           children: <Widget>[
             Text(
@@ -193,7 +200,7 @@ class Poster extends StatelessWidget {
     return Center(
       child: Container(
         decoration: _boxDecoration(_c2, Colors.green),
-        width: _w,
+        width: _w(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -212,7 +219,7 @@ class Poster extends StatelessWidget {
     return Center(
       child: Container(
         decoration: _boxDecoration(_c3, Colors.blue),
-        width: _w,
+        width: _w(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

@@ -16,7 +16,7 @@ import 'package:party/utils/context.dart';
 
 
 List<Widget> notes = [
-  Text("Sinds september de meest populaire uitgaansgelegenheid in het R(ood) G(roen) B(lauw) café op het Stratumseind"),
+  Text("Sinds september de meest populaire uitgaansgelegenheid in het RGB café op het Stratumseind. De naam RGB komt van de drie kanalen Rood Groen of Blauw die op koptelefoon gekozen kan worden. "),
   Container(height: 10.0),
   _image(),
 ];
