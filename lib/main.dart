@@ -28,7 +28,7 @@ class MyWebsite extends StatelessWidget {
         centerTitle: true,
       ),
       body: Container(
-        child: SingleChildScrollView(child: Poster())),
+        child: Poster()),
     );
   }
 }

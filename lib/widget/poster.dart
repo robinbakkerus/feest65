@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:party/utils/context.dart';
+import 'package:party/utils/show_modal.dart';
 import 'package:party/widget/lokatie.dart';
 import 'package:party/widget/parkeren.dart';
 import 'package:party/widget/silent_disco.dart';
-import 'package:party/widget/glow.dart';
+import 'package:party/widget/glow_ehv.dart';
 
 const _c1 = Color.fromRGBO(230, 10, 10, 0.1);
 const _c2 = Color.fromRGBO(10, 230, 10, 0.1);
@@ -15,103 +16,109 @@ class Poster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     AppData.screenWidth = MediaQuery.of(context).size.width;
     AppData.srceenHeight = MediaQuery.of(context).size.height;
-    AppData.lokatieInfo = LokatieInfo(context);
-    AppData.parkeerInfo = ParkeerInfo(context);
-    AppData.silentDisco = SilentDisco(context);
-    AppData.glow = GlowFestival(context);
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        _posterImage(),
-        _verSpace(),
-        // _aankondiging(),
-        _kadoTip(),
-        _verSpace(),
-        _lokatie(),
-        _verSpace(),
-        _parkeren(),
-        _verSpace(),
-        _contact(),
-        _verSpace(),
-        _silentDisco(),
-        _verSpace(),
-        _glowFestival(),
-      ],
-    );
+    AppData.showModal = ShowModal(context);
+    AppData.lokatieInfo = LokatieInfo();
+    AppData.parkeerInfo = ParkeerInfo();
+    AppData.silentDisco = SilentDisco();
+    AppData.glow = GlowEhv();
+
+    List<Widget> _widgets = [
+      _posterImage(),
+      _verSpace(),
+      _kadoTip(),
+      _verSpace(),
+      _lokatie(),
+      _verSpace(),
+      _parkeren(),
+      _verSpace(),
+      _contact(),
+      _verSpace(),
+      _silentDisco(),
+      _verSpace(),
+      _glowFestival(),
+    ];
+
+    return ListView.builder(
+        itemCount: _widgets.length,
+        itemBuilder: (context, idx) {
+          return _widgets[idx];
+        });
   }
-  
+
   Widget _verSpace() {
     return Container(
       height: 10,
     );
   }
 
-  Container _posterImage() {
-    return Container(
-        width: _w,
-        height: 400.0,
-        decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image: new AssetImage(
-                  "web/assets/rgb-feest.jpg",
-                ))));
+  Widget _posterImage() {
+    return Center(
+      child: Container(
+          width: _w,
+          height: 400.0,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: new AssetImage(
+                    "web/assets/rgb-feest.jpg",
+                  )))),
+    );
   }
 
   Widget _kadoTip() {
-    return Container(
-      width: _w,
-      decoration: _boxDecoration(Colors.white, Colors.red),
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                      width: 70,
-                      height: 70,
-                      child: ConstrainedBox(
-                          constraints: BoxConstraints.expand(),
-                          child: Image.asset('web/assets/kado-tip.jpg'))),
-                  Text(
-                    'Als bijdrage voor het feest ...',
-                    style:
-                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                      width: 100,
-                      height: 70,
-                      color: _c1,
-                      child: ConstrainedBox(
-                          constraints: BoxConstraints.expand(),
-                          child: Image.asset('web/assets/wijn.jpg'))),
-                  Text(
-                    ' of ',
-                    style:
-                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-                  ),
-                  Container(
-                      width: 100,
-                      height: 70,
-                      child: ConstrainedBox(
-                          constraints: BoxConstraints.expand(),
-                          child: Image.asset('web/assets/bier.jpg'))),
-                ],
-              ),
-            ],
+    return Center(
+      child: Container(
+        width: _w,
+        decoration: _boxDecoration(Colors.white, Colors.red),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                        width: 70,
+                        height: 70,
+                        child: ConstrainedBox(
+                            constraints: BoxConstraints.expand(),
+                            child: Image.asset('web/assets/kado-tip.jpg'))),
+                    Text(
+                      'Als bijdrage voor het feest ...',
+                      style: TextStyle(
+                          fontSize: 24.0, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                        width: 100,
+                        height: 70,
+                        child: ConstrainedBox(
+                            constraints: BoxConstraints.expand(),
+                            child: Image.asset('web/assets/wijn.jpg'))),
+                    Text(
+                      ' of ',
+                      style: TextStyle(
+                          fontSize: 24.0, fontWeight: FontWeight.bold),
+                    ),
+                    Container(
+                        width: 100,
+                        height: 70,
+                        child: ConstrainedBox(
+                            constraints: BoxConstraints.expand(),
+                            child: Image.asset('web/assets/bier.jpg'))),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -164,13 +171,16 @@ class Poster extends StatelessWidget {
         width: _w,
         child: Column(
           children: <Widget>[
-            Text('Nog vragen? ',
+            Text(
+              'Nog vragen? ',
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
-            Text('robin.bakkerus@gmail.com ',
+            Text(
+              'robin.bakkerus@gmail.com ',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
-            Text('06 33 000 684 ',
+            Text(
+              '06 33 000 684 ',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
           ],
@@ -188,7 +198,7 @@ class Poster extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Silent disco ... ',
+              'Silent disco: ',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
             _button(_showSilentDisco),
@@ -207,10 +217,10 @@ class Poster extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Glow lichtfestival ... ',
+              'Glow lichtfestival: ',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
-            _button(_showSilentDisco()),
+            _button(_showGlow),
           ],
         ),
       ),
@@ -219,17 +229,12 @@ class Poster extends StatelessWidget {
 
   RaisedButton _button(VoidCallback onClick) {
     return RaisedButton(
-            onPressed: onClick,
-            textColor: Colors.white,
-            hoverColor: Colors.red,
-            child: Text(' Meer info ', style: TextStyle(fontSize: 20)),
-            color: Color.fromRGBO(9, 110, 200, 0.6),
-            // child: Container(
-            //   decoration: _boxDecoration(Colors.lightGreen, Color(0x0066cc)),
-            //   padding: const EdgeInsets.all(2.0),
-            //   child: const Text(' Meer info ', style: TextStyle(fontSize: 20)),
-            // ),
-          );
+      onPressed: onClick,
+      textColor: Colors.white,
+      hoverColor: Colors.red,
+      child: Text(' Meer info ', style: TextStyle(fontSize: 20)),
+      color: Color.fromRGBO(9, 110, 200, 0.6),
+    );
   }
 
   BoxDecoration _boxDecoration(Color backCol, Color borderCol) {
@@ -241,12 +246,11 @@ class Poster extends StatelessWidget {
     );
   }
 
-
   _showParkeerInfo() => AppData.parkeerInfo.showParkeerInfo();
   _showLokatieInfo() => AppData.lokatieInfo.showLokatieInfo();
   _showSilentDisco() => AppData.silentDisco.showInfo();
-  _showGlow() => AppData.glow.showGlowInfo();
-  
+  _showGlow() => AppData.glow.showInfo();
+
 //---
 
 }

@@ -22,31 +22,8 @@ List<Widget> notes = [
 ];
 
 class SilentDisco {
-  final BuildContext context;
-  SilentDisco(context) : this.context = context;
-
-  void dismissDialog(BuildContext context) {
-    Navigator.pop(context);
-  }
-
-  Future<void> showInfo() {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Silent Disco ...'),
-          content: _body(),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Ok'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
+  void showInfo() {
+    AppData.showModal.show('Silent Disco ...', _body());
   }
 
   Widget _body() {
@@ -60,5 +37,4 @@ class SilentDisco {
           }),
     );
   }
-
 }

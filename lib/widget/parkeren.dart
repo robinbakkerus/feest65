@@ -24,31 +24,9 @@ List<Widget> notes = [
 ];
 
 class ParkeerInfo {
-  final BuildContext context;
-  ParkeerInfo(context) : this.context = context;
 
-  void dismissDialog(BuildContext context) {
-    Navigator.pop(context);
-  }
-
-  Future<void> showParkeerInfo() {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Parkeer plaatsen'),
-          content: _body(),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Ok'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
+  void showParkeerInfo() {
+    AppData.showModal.show('Parkeer plaatsen ...', _body());
   }
 
   Widget _body() {
@@ -62,9 +40,4 @@ class ParkeerInfo {
           }),
     );
   }
-
-  // FittedBox(
-  //     child: Image.asset('web/assets/parkeerplaatsen.jpg'),
-  //     fit: BoxFit.fill,
-  //   )
 }

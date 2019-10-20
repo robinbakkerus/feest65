@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:party/utils/context.dart';
 
+class Locatie extends StatelessWidget {
+  Locatie({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text("todo");
+  }
+}
+
+
  Widget _image() {
     return Container(
       width: 0.7 * AppData.srceenHeight,
@@ -24,31 +34,10 @@ List<Widget> notes = [
 ];
 
 class LokatieInfo {
-  final BuildContext context;
-  LokatieInfo(context) : this.context = context;
 
-  void dismissDialog(BuildContext context) {
-    Navigator.pop(context);
-  }
-
-  Future<void> showLokatieInfo() {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Waar en hoe laat'),
-          content: _body(),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Ok'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
+  void showLokatieInfo() {
+    print("TODO " + AppData.showModal.toString());
+    AppData.showModal.show('Waar en hoe laat ...', _body());
   }
 
   Widget _body() {
@@ -62,9 +51,4 @@ class LokatieInfo {
           }),
     );
   }
-
-  // FittedBox(
-  //     child: Image.asset('web/assets/parkeerplaatsen.jpg'),
-  //     fit: BoxFit.fill,
-  //   )
 }
