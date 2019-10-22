@@ -33,11 +33,11 @@ class Poster extends StatelessWidget {
       _verSpace(),
       _parkeren(),
       _verSpace(),
-      _contact(),
-      _verSpace(),
       _silentDisco(),
       _verSpace(),
       _glowFestival(),
+      _verSpace(),
+      _contact(),
     ];
 
     return ListView.builder(
@@ -122,6 +122,17 @@ class Poster extends StatelessWidget {
                         child: ConstrainedBox(
                             constraints: BoxConstraints.expand(),
                             child: Image.asset('web/assets/bier.jpg'))),
+                    Text(
+                      ' of ',
+                      style: TextStyle(
+                          fontSize: 24.0, fontWeight: FontWeight.bold),
+                    ),
+                    Container(
+                        width: 100,
+                        height: 70,
+                        child: ConstrainedBox(
+                            constraints: BoxConstraints.expand(),
+                            child: Image.asset('web/assets/envelop.jpg'))),
                   ],
                 ),
               ],
