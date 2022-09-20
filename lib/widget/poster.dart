@@ -245,13 +245,18 @@ class Poster extends StatelessWidget {
     );
   }
 
-  RaisedButton _button(VoidCallback onClick) {
-    return RaisedButton(
+  ElevatedButton _button(VoidCallback onClick) {
+    final ButtonStyle style = ElevatedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20),
+        backgroundColor: Colors.white);
+
+    return ElevatedButton(
       onPressed: onClick,
-      textColor: Colors.white,
-      hoverColor: Colors.red,
+      style: style,
+      //textColor: Colors.white,
+      //hoverColor: Colors.red,
       child: Text(' Meer info ', style: TextStyle(fontSize: 20)),
-      color: Color.fromRGBO(9, 110, 200, 0.6),
+      //color: Color.fromRGBO(9, 110, 200, 0.6),
     );
   }
 
