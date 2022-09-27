@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:party/widget/armenloterij.dart';
 import 'package:party/widget/poster.dart';
-// import 'widget/sliver.dart';
 
-void main() => runApp(Hummingbird());
+// void main() => runApp(Feest65App());
+void main() => runApp(ArmenLoterijApp());
 
-class Hummingbird extends StatelessWidget {
+class Feest65App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,12 +14,12 @@ class Hummingbird extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: MyWebsite(),
+      home: _Feest65App(),
     );
   }
 }
 
-class MyWebsite extends StatelessWidget {
+class _Feest65App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +29,22 @@ class MyWebsite extends StatelessWidget {
         centerTitle: true,
       ),
       body: Container(child: Poster()),
+    );
+  }
+}
+
+//--------------
+
+class ArmenLoterijApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Armenloterij',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Armenloterij(),
     );
   }
 }

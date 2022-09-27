@@ -11,7 +11,7 @@ const _c2 = Color.fromRGBO(10, 230, 10, 0.1);
 const _c3 = Color.fromRGBO(10, 10, 230, 0.1);
 
 class Poster extends StatelessWidget {
-  const Poster({Key key}) : super(key: key);
+  const Poster({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -269,10 +269,10 @@ class Poster extends StatelessWidget {
     );
   }
 
-  _showParkeerInfo() => AppData.parkeerInfo.showParkeerInfo();
-  _showLokatieInfo() => AppData.lokatieInfo.showLokatieInfo();
-  _showSilentDisco() => AppData.silentDisco.showInfo();
-  _showGlow() => AppData.glow.showInfo();
+  _showParkeerInfo() => AppData.parkeerInfo?.showParkeerInfo();
+  _showLokatieInfo() => AppData.lokatieInfo?.showLokatieInfo();
+  _showSilentDisco() => AppData.silentDisco?.showInfo();
+  _showGlow() => AppData.glow?.showInfo();
 
 //---
 

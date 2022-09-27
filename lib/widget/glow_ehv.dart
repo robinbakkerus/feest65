@@ -23,7 +23,7 @@ List<Widget> _widgets = [
 
 class GlowEhv {
   showInfo() {
-    AppData.showModal.show('Glow Eindhoven', _body());
+    AppData.showModal?.show('Glow Eindhoven', _body());
   }
 
   Widget _body() {

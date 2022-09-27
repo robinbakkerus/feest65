@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:party/utils/context.dart';
 
- Widget _image() {
-    return Container(
-      width: 0.7 * AppData.srceenHeight,
-      height: 0.7 * AppData.srceenHeight - 100,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.fitHeight,
-          image: AssetImage("web/assets/parkeerplaatsen.jpg"),
-        ),
+Widget _image() {
+  return Container(
+    width: 0.7 * AppData.srceenHeight,
+    height: 0.7 * AppData.srceenHeight - 100,
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        fit: BoxFit.fitHeight,
+        image: AssetImage("web/assets/parkeerplaatsen.jpg"),
       ),
-    );
-  }
-
+    ),
+  );
+}
 
 List<Widget> notes = [
   Text("1. Dicht bij in het centrum onder de Heuvelgalerie"),
@@ -24,9 +23,8 @@ List<Widget> notes = [
 ];
 
 class ParkeerInfo {
-
   void showParkeerInfo() {
-    AppData.showModal.show('Parkeer plaatsen ...', _body());
+    AppData.showModal?.show('Parkeer plaatsen ...', _body());
   }
 
   Widget _body() {
