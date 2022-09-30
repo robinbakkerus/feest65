@@ -27,6 +27,10 @@ class Armenloterij extends StatelessWidget {
       _verSpace(),
       const KrasLotPrijs(),
       _verSpace(),
+      Container(
+        color: Colors.white,
+        height: 500,
+      )
     ];
 
     return SafeArea(
