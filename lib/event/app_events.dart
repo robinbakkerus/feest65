@@ -13,7 +13,7 @@ class KrasLotShowPrice {}
 
 //--- AppEvents -----------------
 class AppEvents {
-  static final EventBus _sEventBus = new EventBus();
+  static final EventBus _sEventBus = EventBus();
 
   // Only needed if clients want all EventBus functionality.
   static EventBus ebus() => _sEventBus;
@@ -21,11 +21,10 @@ class AppEvents {
   /*
   * The methods below are just convenience shortcuts to make it easier for the client to use.
   */
-  static void fireKraslotSwipe() => _sEventBus.fire(new KraslotSwipe());
-  static void fireKraslotVisible() => _sEventBus.fire(new KraslotVisible());
-  static void fireKraslotInputReady() =>
-      _sEventBus.fire(new KraslotInputReady());
-  static void fireKrasLotShowPrice() => _sEventBus.fire(new KrasLotShowPrice());
+  static void fireKraslotSwipe() => _sEventBus.fire(KraslotSwipe());
+  static void fireKraslotVisible() => _sEventBus.fire(KraslotVisible());
+  static void fireKraslotInputReady() => _sEventBus.fire(KraslotInputReady());
+  static void fireKrasLotShowPrice() => _sEventBus.fire(KrasLotShowPrice());
 
   //--
   static void onKraslotSwipe(OnKrasLotSwipeFunc func) =>
@@ -38,7 +37,7 @@ class AppEvents {
       _sEventBus.on<KrasLotShowPrice>().listen((event) => func(event));
 }
 
-typedef void OnKrasLotSwipeFunc(KraslotSwipe event);
-typedef void OnKrasLotVisibleFunc(KraslotVisible event);
-typedef void OnKrasLotInputReadyFunc(KraslotInputReady event);
-typedef void OnKrasLotShowPriceFunc(KrasLotShowPrice event);
+typedef OnKrasLotSwipeFunc = void Function(KraslotSwipe event);
+typedef OnKrasLotVisibleFunc = void Function(KraslotVisible event);
+typedef OnKrasLotInputReadyFunc = void Function(KraslotInputReady event);
+typedef OnKrasLotShowPriceFunc = void Function(KrasLotShowPrice event);

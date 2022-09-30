@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:party/utils/context.dart';
 
 class Locatie extends StatelessWidget {
-  Locatie({Key? key}) : super(key: key);
+  const Locatie({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text("todo");
+    return const Text("todo");
   }
 }
 
@@ -14,7 +14,7 @@ Widget _image() {
   return Container(
     width: 0.7 * AppData.srceenHeight,
     height: 0.7 * AppData.srceenHeight - 100,
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       image: DecorationImage(
         fit: BoxFit.fitHeight,
         image: AssetImage("web/assets/rgb-cafe.jpg"),
@@ -24,9 +24,9 @@ Widget _image() {
 }
 
 List<Widget> notes = [
-  Text("Adres: Stratumseind 36"),
-  Text("Vanaf 16:00 "),
-  Text(
+  const Text("Adres: Stratumseind 36"),
+  const Text("Vanaf 16:00 "),
+  const Text(
       "Daarna kun je naadloos bij de jeugd aansluiten voor de Silent disco of nog een stukje van de Glow route lopen."),
   Container(height: 10.0),
   _image(),
@@ -34,12 +34,12 @@ List<Widget> notes = [
 
 class LokatieInfo {
   void showLokatieInfo() {
-    print("TODO " + AppData.showModal.toString());
+    debugPrint("TODO ${AppData.showModal}");
     AppData.showModal?.show('Waar en hoe laat ...', _body());
   }
 
   Widget _body() {
-    return Container(
+    return SizedBox(
       width: 0.8 * AppData.screenWidth,
       height: 0.7 * AppData.srceenHeight,
       child: ListView.builder(

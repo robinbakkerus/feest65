@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 class ShowModal {
   final BuildContext context;
 
-  ShowModal(context) : this.context = context;
+  ShowModal(this.context);
 
   show(String msg, Widget body) {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Silent Disco ...'),
+          title: const Text('Silent Disco ...'),
           content: body,
           actions: <Widget>[
             ElevatedButton(
-              child: Text('Ok'),
+              child: const Text('Ok'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

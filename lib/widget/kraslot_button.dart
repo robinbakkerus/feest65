@@ -7,7 +7,7 @@ class KrasLotButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _KrasLotButton();
+    return const _KrasLotButton();
   }
 }
 
@@ -28,8 +28,8 @@ class _KrasLotButtonState extends State<_KrasLotButton>
   _KrasLotButtonState() {
     AppEvents.onKraslotInputReady((event) {
       setState(() {
-        print("input ready");
-        this._inputReady = true;
+        debugPrint("input ready");
+        _inputReady = true;
       });
     });
   }
@@ -42,7 +42,11 @@ class _KrasLotButtonState extends State<_KrasLotButton>
 
   @override
   Widget build(BuildContext context) {
-    return !_inputReady ? Container() : _btn();
+    return !_inputReady
+        ? Container(
+            color: Colors.white,
+          )
+        : _btn();
   }
 
   Widget _btn() {

@@ -8,7 +8,7 @@ class KrasLotTop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _KrasLotTop();
+    return const _KrasLotTop();
   }
 }
 
@@ -61,21 +61,21 @@ class _KrasLotTopState extends State<_KrasLotTop> {
   }
 
   double _getOpacity(int idx) {
-    KrasItem _item = _items[idx];
-    return _item.selected ? 0.0 : 1.0;
+    KrasItem item = _items[idx];
+    return item.selected ? 0.0 : 1.0;
   }
 
   void _handleSwipe() {
     for (var i = 0; i < 10; i++) {
-      var _unselected =
+      var unselected =
           _items.where((element) => element.selected == false).toList();
-      var _len = _unselected.length;
+      var len = unselected.length;
 
-      if (_len > 2) {
-        int _pickIndex = Random().nextInt(_unselected.length - 1);
-        KrasItem _item = _unselected[_pickIndex];
-        _item.selected = true;
-      } else if (_len < 50) {
+      if (len > 2) {
+        int pickIndex = Random().nextInt(unselected.length - 1);
+        KrasItem item = unselected[pickIndex];
+        item.selected = true;
+      } else if (len < 50) {
         AppEvents.fireKraslotVisible();
       }
     }

@@ -6,7 +6,7 @@ class KrasLot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _KrasLot();
+    return const _KrasLot();
   }
 }
 
@@ -21,6 +21,7 @@ class _KrasLotState extends State<_KrasLot> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
       child: _krasStack(),
     );
   }
@@ -46,6 +47,6 @@ class _KrasLotState extends State<_KrasLot> {
   }
 
   Widget _krasTop() {
-    return KrasLotTop();
+    return const KrasLotTop();
   }
 }

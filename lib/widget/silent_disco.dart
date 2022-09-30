@@ -5,7 +5,7 @@ Widget _image() {
   return Container(
     width: 0.9 * AppData.srceenHeight,
     height: 0.9 * AppData.srceenHeight - 100,
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       image: DecorationImage(
         fit: BoxFit.fitHeight,
         image: AssetImage("web/assets/silentdisco.jpg"),
@@ -15,7 +15,7 @@ Widget _image() {
 }
 
 List<Widget> notes = [
-  Text(
+  const Text(
       "Sinds september de meest populaire uitgaansgelegenheid in het RGB café op het Stratumseind. De naam RGB komt van de drie kanalen Rood Groen of Blauw die op koptelefoon gekozen kan worden. "),
   Container(height: 10.0),
   _image(),
@@ -27,7 +27,7 @@ class SilentDisco {
   }
 
   Widget _body() {
-    return Container(
+    return SizedBox(
       width: 0.8 * AppData.screenWidth,
       height: 0.7 * AppData.srceenHeight,
       child: ListView.builder(

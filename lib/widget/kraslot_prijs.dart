@@ -6,7 +6,7 @@ class KrasLotPrijs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _KrasLotPrijs();
+    return const _KrasLotPrijs();
   }
 }
 
@@ -26,8 +26,8 @@ class _KrasLotPrijsState extends State<_KrasLotPrijs>
   _KrasLotPrijsState() {
     AppEvents.onKrasLotShowPrice((event) {
       setState(() {
-        print("show price");
-        this._showPrice = true;
+        debugPrint("show price");
+        _showPrice = true;
       });
     });
   }

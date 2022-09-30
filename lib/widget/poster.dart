@@ -24,7 +24,7 @@ class Poster extends StatelessWidget {
     AppData.silentDisco = SilentDisco();
     AppData.glow = GlowEhv();
 
-    List<Widget> _widgets = [
+    List<Widget> widgets = [
       _posterImage(),
       _verSpace(),
       _kadoTip(),
@@ -41,9 +41,9 @@ class Poster extends StatelessWidget {
     ];
 
     return ListView.builder(
-        itemCount: _widgets.length,
+        itemCount: widgets.length,
         itemBuilder: (context, idx) {
-          return _widgets[idx];
+          return widgets[idx];
         });
   }
 
@@ -66,11 +66,11 @@ class Poster extends StatelessWidget {
       child: Container(
           width: _w(),
           height: 400.0,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: new AssetImage(
+                  image: AssetImage(
                     "web/assets/rgb-feest.jpg",
                   )))),
     );
@@ -89,13 +89,13 @@ class Poster extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
+                    SizedBox(
                         width: 70,
                         height: 70,
                         child: ConstrainedBox(
-                            constraints: BoxConstraints.expand(),
+                            constraints: const BoxConstraints.expand(),
                             child: Image.asset('web/assets/kado-tip.jpg'))),
-                    Text(
+                    const Text(
                       'Als bijdrage voor het feest ...',
                       style: TextStyle(
                           fontSize: 24.0, fontWeight: FontWeight.bold),
@@ -105,33 +105,33 @@ class Poster extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
+                    SizedBox(
                         width: 100,
                         height: 70,
                         child: ConstrainedBox(
-                            constraints: BoxConstraints.expand(),
+                            constraints: const BoxConstraints.expand(),
                             child: Image.asset('web/assets/wijn.jpg'))),
-                    Text(
+                    const Text(
                       ' of ',
                       style: TextStyle(
                           fontSize: 24.0, fontWeight: FontWeight.bold),
                     ),
-                    Container(
+                    SizedBox(
                         width: 100,
                         height: 70,
                         child: ConstrainedBox(
-                            constraints: BoxConstraints.expand(),
+                            constraints: const BoxConstraints.expand(),
                             child: Image.asset('web/assets/bier.jpg'))),
-                    Text(
+                    const Text(
                       ' of ',
                       style: TextStyle(
                           fontSize: 24.0, fontWeight: FontWeight.bold),
                     ),
-                    Container(
+                    SizedBox(
                         width: 100,
                         height: 70,
                         child: ConstrainedBox(
-                            constraints: BoxConstraints.expand(),
+                            constraints: const BoxConstraints.expand(),
                             child: Image.asset('web/assets/envelop.jpg'))),
                   ],
                 ),
@@ -151,11 +151,11 @@ class Poster extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'Waar en hoe laat: ',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             _button(_showLokatieInfo),
           ],
         ),
@@ -171,7 +171,7 @@ class Poster extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'Parkeer gelegenheid: ',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
@@ -188,7 +188,7 @@ class Poster extends StatelessWidget {
         decoration: _boxDecoration(_c1, Colors.red),
         width: _w(),
         child: Column(
-          children: <Widget>[
+          children: const <Widget>[
             Text(
               'Nog vragen? ',
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
@@ -215,7 +215,7 @@ class Poster extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'Silent disco: ',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
@@ -234,7 +234,7 @@ class Poster extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'Glow lichtfestival: ',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
@@ -255,16 +255,16 @@ class Poster extends StatelessWidget {
       style: style,
       //textColor: Colors.white,
       //hoverColor: Colors.red,
-      child: Text(' Meer info ', style: TextStyle(fontSize: 20)),
+      child: const Text(' Meer info ', style: TextStyle(fontSize: 20)),
       //color: Color.fromRGBO(9, 110, 200, 0.6),
     );
   }
 
   BoxDecoration _boxDecoration(Color backCol, Color borderCol) {
-    return new BoxDecoration(
-      border: new Border.all(
-          color: borderCol, width: 5.0, style: BorderStyle.solid),
-      borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
+    return BoxDecoration(
+      border:
+          Border.all(color: borderCol, width: 5.0, style: BorderStyle.solid),
+      borderRadius: const BorderRadius.all(Radius.circular(10.0)),
       color: backCol,
     );
   }

@@ -6,7 +6,7 @@ class KrasLotInvoer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _KrasLotInvoer();
+    return const _KrasLotInvoer();
   }
 }
 
@@ -33,19 +33,24 @@ class _KrasLotInvoerState extends State<_KrasLotInvoer> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0,
+      margin: EdgeInsets.zero,
+      color: Colors.white,
+      elevation: null,
       child: Center(
         child: SizedBox(
           width: 100,
           child: !_inputVisible
-              ? Container()
+              ? Container(
+                  color: Colors.white,
+                )
               : TextField(
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 32, fontWeight: FontWeight.bold),
                   onChanged: (text) {
                     _onChanged(text);
                   },
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                  decoration: const InputDecoration(
+                    // border: OutlineInputBorder(),
                     hintText: 'nr',
                   ),
                 ),

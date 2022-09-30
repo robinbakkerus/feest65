@@ -3,9 +3,11 @@ import 'package:party/widget/armenloterij.dart';
 import 'package:party/widget/poster.dart';
 
 // void main() => runApp(Feest65App());
-void main() => runApp(ArmenLoterijApp());
+void main() => runApp(const ArmenLoterijApp());
 
 class Feest65App extends StatelessWidget {
+  const Feest65App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,10 +27,10 @@ class _Feest65App extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('9 november Silent disco feest!!'),
+        title: const Text('9 november Silent disco feest!!'),
         centerTitle: true,
       ),
-      body: Container(child: Poster()),
+      body: const Poster(),
     );
   }
 }
@@ -36,6 +38,8 @@ class _Feest65App extends StatelessWidget {
 //--------------
 
 class ArmenLoterijApp extends StatelessWidget {
+  const ArmenLoterijApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,7 +48,7 @@ class ArmenLoterijApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Armenloterij(),
+      home: const Armenloterij(),
     );
   }
 }
